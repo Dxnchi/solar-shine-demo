@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solar Shine - Professional Solar Panel Cleaning in South Africa. Maximise performance and protect your investment.">
+    <meta name="description" content="Solar Shine - Professional Solar Panel Cleaning in South Africa. We clean. You save.">
     <title>Solar Shine | Professional Panel Cleaning</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,9 +11,10 @@
     
     <style>
         :root {
-            --navy: #0B192C;
-            --yellow: #F9A826;
-            --yellow-glow: rgba(249, 168, 38, 0.4);
+            /* Adjusted to match the PDF Decal perfectly */
+            --navy: #0a1128; 
+            --yellow: #ffb703; 
+            --yellow-glow: rgba(255, 183, 3, 0.4);
             --light-bg: #F0F4F8;
             --white: #FFFFFF;
             --text-gray: #475569;
@@ -30,33 +31,35 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 100px 0; }
 
-        /* Floating Navigation */
+        /* Floating Navigation with New Logo */
         header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); }
         nav { display: flex; justify-content: space-between; align-items: center; height: 85px; }
-        .logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.6rem; color: var(--navy); letter-spacing: 1px; }
-        .logo i { color: var(--yellow); font-size: 2rem; filter: drop-shadow(0 2px 4px var(--yellow-glow)); }
+        
+        /* Logo Image Styling */
+        .brand-logo { height: 50px; width: auto; object-fit: contain; }
+        
         .nav-links { display: flex; gap: 35px; align-items: center; }
         .nav-links a { color: var(--navy); font-weight: 700; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
         .nav-links a:hover { color: var(--yellow); }
         
         .btn { padding: 14px 28px; border-radius: 50px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: none; text-transform: uppercase; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 1px; transition: var(--transition); }
         .btn-yellow { background: var(--yellow); color: var(--navy); box-shadow: 0 8px 20px var(--yellow-glow); }
-        .btn-yellow:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(249, 168, 38, 0.6); }
-        .btn-navy { background: var(--navy); color: var(--white); box-shadow: 0 8px 20px rgba(11, 25, 44, 0.2); }
-        .btn-navy:hover { background: #152c4d; transform: translateY(-3px); box-shadow: 0 12px 25px rgba(11, 25, 44, 0.3); }
+        .btn-yellow:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255, 183, 3, 0.6); }
+        .btn-navy { background: var(--navy); color: var(--white); box-shadow: 0 8px 20px rgba(10, 17, 40, 0.2); }
+        .btn-navy:hover { background: #152c4d; transform: translateY(-3px); box-shadow: 0 12px 25px rgba(10, 17, 40, 0.3); }
 
         /* Immersive Parallax Hero */
         #hero { 
             margin-top: 85px; 
             min-height: 90vh;
-            background: linear-gradient(rgba(11, 25, 44, 0.7), rgba(11, 25, 44, 0.4)), 
+            background: linear-gradient(rgba(10, 17, 40, 0.7), rgba(10, 17, 40, 0.4)), 
                         url('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
             display: flex;
             align-items: center;
             position: relative;
         }
         .hero-content { background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 60px 50px; border-radius: 20px; max-width: 700px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); }
-        .hero-badge { display: inline-block; padding: 8px 16px; background: rgba(249, 168, 38, 0.15); color: #d97706; font-weight: 800; border-radius: 30px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 1px; }
+        .hero-badge { display: inline-block; padding: 8px 16px; background: rgba(255, 183, 3, 0.15); color: #b45309; font-weight: 800; border-radius: 30px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 1px; }
         #hero h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); margin-bottom: 20px; font-weight: 900; line-height: 1.1; letter-spacing: -1px; }
         #hero h1 span { color: var(--yellow); }
         #hero p { font-size: 1.15rem; margin-bottom: 35px; color: var(--text-gray); line-height: 1.6; }
@@ -72,36 +75,36 @@
         .split-text p { font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; }
         .highlight-list { list-style: none; }
         .highlight-list li { margin-bottom: 15px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 15px; color: var(--navy); }
-        .highlight-list i { color: var(--yellow); font-size: 1.4rem; background: rgba(249, 168, 38, 0.15); padding: 10px; border-radius: 50%; }
+        .highlight-list i { color: var(--yellow); font-size: 1.4rem; background: rgba(255, 183, 3, 0.15); padding: 10px; border-radius: 50%; }
 
         /* Interactive Calculator Dashboard */
         #calculator { background: var(--light-bg); position: relative; overflow: hidden; }
-        .calc-wrapper { background: var(--white); border-radius: 24px; padding: 50px; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 20px 50px rgba(11, 25, 44, 0.08); position: relative; z-index: 2; border: 1px solid rgba(0,0,0,0.05); }
+        .calc-wrapper { background: var(--white); border-radius: 24px; padding: 50px; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 20px 50px rgba(10, 17, 40, 0.08); position: relative; z-index: 2; border: 1px solid rgba(0,0,0,0.05); }
         .calc-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
         .slider-container { margin: 40px 0; padding: 20px; background: var(--light-bg); border-radius: 16px; }
         input[type=range] { width: 100%; height: 8px; border-radius: 4px; background: #cbd5e1; outline: none; -webkit-appearance: none; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); cursor: pointer; box-shadow: 0 4px 10px rgba(249, 168, 38, 0.5); transition: transform 0.1s; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); cursor: pointer; box-shadow: 0 4px 10px rgba(255, 183, 3, 0.5); transition: transform 0.1s; }
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
-        .result-box { background: linear-gradient(135deg, var(--navy), #1a365d); color: var(--white); padding: 35px; border-radius: 16px; margin-top: 30px; box-shadow: 0 15px 30px rgba(11, 25, 44, 0.2); }
-        .result-box h3 { color: var(--yellow); font-size: 3.5rem; margin: 15px 0; text-shadow: 0 2px 10px rgba(249, 168, 38, 0.3); }
+        .result-box { background: linear-gradient(135deg, var(--navy), #152c4d); color: var(--white); padding: 35px; border-radius: 16px; margin-top: 30px; box-shadow: 0 15px 30px rgba(10, 17, 40, 0.2); }
+        .result-box h3 { color: var(--yellow); font-size: 3.5rem; margin: 15px 0; text-shadow: 0 2px 10px rgba(255, 183, 3, 0.3); }
 
-        /* Services */
+        /* Solid Banner */
+        .image-banner { 
+            background: linear-gradient(rgba(255, 183, 3, 0.9), rgba(255, 183, 3, 0.9)), 
+                        url('https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
+            padding: 80px 0; text-align: center; color: var(--navy); 
+        }
+        .image-banner h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--navy); }
+
+        /* Services Grid */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; margin-top: 50px; }
         .service-card { background: var(--white); padding: 50px 40px; border-radius: 20px; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); position: relative; overflow: hidden; }
         .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--yellow); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
         .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .service-card:hover::before { transform: scaleX(1); }
-        .service-icon { width: 80px; height: 80px; background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(249, 168, 38, 0.2)); color: #d97706; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 2.2rem; margin-bottom: 25px; transition: var(--transition); }
+        .service-icon { width: 80px; height: 80px; background: linear-gradient(135deg, rgba(255, 183, 3, 0.1), rgba(255, 183, 3, 0.2)); color: #b45309; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 2.2rem; margin-bottom: 25px; transition: var(--transition); }
         .service-card:hover .service-icon { transform: rotate(10deg) scale(1.1); }
         .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-
-        /* Visual Banner */
-        .image-banner { 
-            background: linear-gradient(rgba(249, 168, 38, 0.9), rgba(249, 168, 38, 0.9)), 
-                        url('https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
-            padding: 80px 0; text-align: center; color: var(--navy); 
-        }
-        .image-banner h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--navy); }
 
         /* Floating WhatsApp */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 100; transition: var(--transition); }
@@ -130,7 +133,8 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <i class="fas fa-solar-panel"></i> SOLAR SHINE
+                    <!-- Brand Logo Image Loaded Here -->
+                    <img src="logo.png" alt="Solar Shine Logo" class="brand-logo">
                 </div>
                 <div class="nav-links">
                     <a href="#about">Why Clean?</a>
@@ -148,7 +152,7 @@
             <div class="hero-content">
                 <div class="hero-badge">South Africa's Premier Panel Care</div>
                 <h1>We Clean.<br>You <span>Save.</span></h1>
-                <p>Dust, bird droppings, and everyday grime block the sun. Professional solar panel cleaning maximizes your system's performance and secures your energy investment.</p>
+                <p>Maximise performance. Protect your investment. Professional solar panel cleaning to secure your energy future.</p>
                 <div class="hero-btns">
                     <a href="https://wa.me/27615862557" class="btn btn-yellow" target="_blank"><i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Us</a>
                     <a href="#calculator" class="btn btn-navy"><i class="fas fa-calculator"></i> Calculate Savings</a>
@@ -164,7 +168,7 @@
         </div>
         <div class="split-text">
             <h2>Your panels work hard.<br>Let’s look after them.</h2>
-            <p>Rain doesn't clean solar panels any more than it cleans your car windscreen. Over time, baked-on dirt creates a physical barrier between your panels and the sun, severely reducing your power output.</p>
+            <p>Over time, baked-on dirt creates a physical barrier between your panels and the sun, severely reducing your power output.</p>
             <ul class="highlight-list">
                 <li><i class="fas fa-sun"></i> Let up to 20% more sunlight reach your cells.</li>
                 <li><i class="fas fa-shield-alt"></i> Prevent permanent hotspot damage and etching.</li>
@@ -211,23 +215,23 @@
         <div class="container">
             <div style="text-align: center; max-width: 700px; margin: 0 auto;">
                 <h2>A Clean Start for Every Panel</h2>
-                <p style="font-size: 1.1rem;">We utilize specialized, non-abrasive equipment designed specifically for photovoltaic glass to ensure a spotless, scratch-free finish.</p>
+                <p style="font-size: 1.1rem;">We utilize specialized, non-abrasive equipment designed specifically for photovoltaic glass.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-home"></i></div>
                     <h3>Residential Cleaning</h3>
-                    <p>Care for the panels that power your home. We safely remove stubborn grime so your system can easily charge your batteries during the day.</p>
+                    <p>Care for the panels that power your home. We safely remove stubborn grime so your system can easily charge your batteries.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-city"></i></div>
                     <h3>Commercial Cleaning</h3>
-                    <p>Practical cleaning for business installations. Maximize your commercial ROI with maintenance arranged strictly around your operational hours.</p>
+                    <p>Practical cleaning for business installations. Maximize your commercial ROI with maintenance arranged strictly around your hours.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-hands-bubbles"></i></div>
                     <h3>Safe & Chemical-Free</h3>
-                    <p>We use purified water systems and specialized solar brushes. No harsh chemicals, no hard water stains, and absolutely no scratched glass.</p>
+                    <p>We use purified water systems and specialized solar brushes. No harsh chemicals, no hard water stains, and no scratched glass.</p>
                 </div>
             </div>
         </div>
@@ -240,7 +244,7 @@
                 <div class="logo" style="color: var(--white); margin-bottom: 20px;">
                     <i class="fas fa-solar-panel"></i> SOLAR SHINE
                 </div>
-                <p style="margin-bottom: 25px; line-height: 1.8;">Clean panels. Better power. Brighter future. Protecting South Africa's renewable energy investments one installation at a time.</p>
+                <p style="margin-bottom: 25px; line-height: 1.8;">Clean panels. Better power. Brighter future. Protecting South Africa's renewable energy investments.</p>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/solarshine_za/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/27615862557" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -277,7 +281,6 @@
         const lostMoney = document.getElementById("lostMoney");
 
         function calculateLoss(panels) {
-            // Rough SA benchmark: 15% efficiency loss on standard 400W panels
             const lossPerPanelAnnually = 520; 
             const totalLoss = panels * lossPerPanelAnnually;
             return "R " + totalLoss.toLocaleString();
