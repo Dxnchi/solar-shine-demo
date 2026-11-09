@@ -7,231 +7,283 @@
     <title>Solar Shine | Professional Panel Cleaning</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Adjusted to match the PDF Decal perfectly */
-            --navy: #0a1128; 
-            --yellow: #ffb703; 
-            --yellow-glow: rgba(255, 183, 3, 0.4);
-            --light-bg: #F0F4F8;
-            --white: #FFFFFF;
+            --primary-navy: #0d1d36;
+            --action-blue: #0d6efd; 
+            --accent-yellow: #f5c531;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --text-dark: #1e293b;
             --text-gray: #475569;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Open Sans', sans-serif; color: var(--text-gray); background: var(--white); overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--navy); }
+        
+        html { 
+            scroll-behavior: smooth; 
+            background-color: #07101c; /* Prevents white bounce on mobile */
+        }
+        
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            color: var(--text-gray); 
+            background: var(--white); 
+            overflow-x: hidden; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--primary-navy); }
         a { text-decoration: none; transition: var(--transition); }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 100px 0; }
+        section { padding: 90px 0; }
 
-        /* Floating Navigation with New Logo */
-        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); }
+        /* Top Bar */
+        .top-bar { background: var(--primary-navy); color: var(--white); padding: 10px 0; font-size: 0.85rem; letter-spacing: 0.3px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar-contact { display: flex; gap: 20px; align-items: center; }
+        .top-bar a { color: var(--white); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .top-bar a:hover { color: var(--accent-yellow); }
+
+        /* Navigation */
+        header { background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
         nav { display: flex; justify-content: space-between; align-items: center; height: 85px; }
-        
-        /* Logo Image Styling */
         .brand-logo { height: 50px; width: auto; object-fit: contain; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a.link-item { color: var(--primary-navy); font-weight: 600; font-size: 0.95rem; }
+        .nav-links a.link-item:hover { color: var(--action-blue); }
         
-        .nav-links { display: flex; gap: 35px; align-items: center; }
-        .nav-links a { color: var(--navy); font-weight: 700; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-links a:hover { color: var(--yellow); }
-        
-        .btn { padding: 14px 28px; border-radius: 50px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: none; text-transform: uppercase; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 1px; transition: var(--transition); }
-        .btn-yellow { background: var(--yellow); color: var(--navy); box-shadow: 0 8px 20px var(--yellow-glow); }
-        .btn-yellow:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255, 183, 3, 0.6); }
-        .btn-navy { background: var(--navy); color: var(--white); box-shadow: 0 8px 20px rgba(10, 17, 40, 0.2); }
-        .btn-navy:hover { background: #152c4d; transform: translateY(-3px); box-shadow: 0 12px 25px rgba(10, 17, 40, 0.3); }
+        /* Buttons */
+        .btn { padding: 14px 28px; border-radius: 8px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; border: none; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; transition: var(--transition); }
+        .btn-action { background: var(--action-blue); color: var(--white); box-shadow: 0 4px 10px rgba(13, 110, 253, 0.2); }
+        .btn-action:hover { background: #0b5ed7; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(13, 110, 253, 0.3); }
+        .btn-yellow { background: var(--accent-yellow); color: var(--primary-navy); box-shadow: 0 4px 10px rgba(245, 197, 49, 0.2); }
+        .btn-yellow:hover { background: #eab308; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(245, 197, 49, 0.3); }
+        .btn-outline { background: transparent; border: 2px solid var(--white); color: var(--white); }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
 
-        /* Immersive Parallax Hero */
+        /* Hero Section */
         #hero { 
-            margin-top: 85px; 
-            min-height: 90vh;
-            background: linear-gradient(rgba(10, 17, 40, 0.7), rgba(10, 17, 40, 0.4)), 
-                        url('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
+            min-height: 80vh;
+            background: linear-gradient(rgba(13, 29, 54, 0.7), rgba(13, 29, 54, 0.8)), 
+                        url('https://images.unsplash.com/photo-1509391366360-120953a17ed7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; 
             display: flex;
             align-items: center;
-            position: relative;
         }
-        .hero-content { background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 60px 50px; border-radius: 20px; max-width: 700px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); }
-        .hero-badge { display: inline-block; padding: 8px 16px; background: rgba(255, 183, 3, 0.15); color: #b45309; font-weight: 800; border-radius: 30px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 1px; }
-        #hero h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); margin-bottom: 20px; font-weight: 900; line-height: 1.1; letter-spacing: -1px; }
-        #hero h1 span { color: var(--yellow); }
-        #hero p { font-size: 1.15rem; margin-bottom: 35px; color: var(--text-gray); line-height: 1.6; }
+        .hero-content { max-width: 800px; color: var(--white); }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-yellow); font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 25px; font-family: 'Montserrat', sans-serif; }
+        #hero h1 { color: var(--white); font-size: clamp(3.5rem, 7vw, 5.5rem); margin-bottom: 25px; font-weight: 800; line-height: 1.1; letter-spacing: -1px; }
+        #hero h1 span { color: var(--accent-yellow); }
+        #hero p { font-size: 1.25rem; margin-bottom: 40px; color: #f1f5f9; line-height: 1.6; max-width: 650px; }
         .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
 
-        /* Feature Highlight (Image Split) */
-        .split-section { display: flex; align-items: center; gap: 50px; padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        .split-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; }
-        .split-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-        .split-image:hover img { transform: scale(1.05); }
+        /* Informative Split Section */
+        #about { background: var(--white); }
+        .split-section { display: flex; align-items: center; gap: 60px; }
+        .split-image { flex: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .split-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .split-text { flex: 1; }
-        .split-text h2 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; letter-spacing: -0.5px; }
-        .split-text p { font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; }
+        .split-text h2 { font-size: 2.8rem; margin-bottom: 25px; line-height: 1.2; letter-spacing: -0.5px; }
+        .split-text p { font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; color: var(--text-gray); }
         .highlight-list { list-style: none; }
-        .highlight-list li { margin-bottom: 15px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 15px; color: var(--navy); }
-        .highlight-list i { color: var(--yellow); font-size: 1.4rem; background: rgba(255, 183, 3, 0.15); padding: 10px; border-radius: 50%; }
+        .highlight-list li { margin-bottom: 20px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 15px; color: var(--primary-navy); }
+        .highlight-list i { color: var(--action-blue); font-size: 1.4rem; background: rgba(13, 110, 253, 0.1); padding: 12px; border-radius: 50%; }
 
-        /* Interactive Calculator Dashboard */
-        #calculator { background: var(--light-bg); position: relative; overflow: hidden; }
-        .calc-wrapper { background: var(--white); border-radius: 24px; padding: 50px; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 20px 50px rgba(10, 17, 40, 0.08); position: relative; z-index: 2; border: 1px solid rgba(0,0,0,0.05); }
-        .calc-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .slider-container { margin: 40px 0; padding: 20px; background: var(--light-bg); border-radius: 16px; }
-        input[type=range] { width: 100%; height: 8px; border-radius: 4px; background: #cbd5e1; outline: none; -webkit-appearance: none; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); cursor: pointer; box-shadow: 0 4px 10px rgba(255, 183, 3, 0.5); transition: transform 0.1s; }
-        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
-        .result-box { background: linear-gradient(135deg, var(--navy), #152c4d); color: var(--white); padding: 35px; border-radius: 16px; margin-top: 30px; box-shadow: 0 15px 30px rgba(10, 17, 40, 0.2); }
-        .result-box h3 { color: var(--yellow); font-size: 3.5rem; margin: 15px 0; text-shadow: 0 2px 10px rgba(255, 183, 3, 0.3); }
-
-        /* Solid Banner */
-        .image-banner { 
-            background: linear-gradient(rgba(255, 183, 3, 0.9), rgba(255, 183, 3, 0.9)), 
-                        url('https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
-            padding: 80px 0; text-align: center; color: var(--navy); 
-        }
-        .image-banner h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--navy); }
+        /* Interactive Calculator */
+        #calculator { background: var(--bg-light); border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .calc-wrapper { background: var(--white); border-radius: 16px; padding: 50px; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 15px 35px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
+        .calc-wrapper h2 { margin-bottom: 15px; font-size: 2.5rem; }
+        .calc-wrapper p { font-size: 1.1rem; margin-bottom: 40px; }
+        
+        .slider-container { margin: 40px 0; padding: 30px; background: var(--bg-light); border-radius: 12px; border: 1px solid #e2e8f0; }
+        input[type=range] { width: 100%; accent-color: var(--action-blue); height: 8px; cursor: pointer; }
+        .result-box { background: var(--primary-navy); color: var(--white); padding: 35px; border-radius: 12px; margin-top: 30px; box-shadow: 0 10px 25px rgba(13, 29, 54, 0.15); }
+        .result-box h3 { color: var(--accent-yellow); font-size: 3.5rem; margin: 15px 0; letter-spacing: -1px; }
 
         /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; margin-top: 50px; }
-        .service-card { background: var(--white); padding: 50px 40px; border-radius: 20px; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); position: relative; overflow: hidden; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--yellow); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .service-card:hover::before { transform: scaleX(1); }
-        .service-icon { width: 80px; height: 80px; background: linear-gradient(135deg, rgba(255, 183, 3, 0.1), rgba(255, 183, 3, 0.2)); color: #b45309; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 2.2rem; margin-bottom: 25px; transition: var(--transition); }
-        .service-card:hover .service-icon { transform: rotate(10deg) scale(1.1); }
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        #services { background: var(--white); }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-header h2 { font-size: 2.8rem; margin-bottom: 20px; }
+        .section-header p { font-size: 1.15rem; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .service-card { background: var(--bg-light); padding: 45px 35px; border-radius: 12px; text-align: left; border: 1px solid #e2e8f0; transition: var(--transition); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); border-color: var(--action-blue); }
+        .service-icon { font-size: 2.5rem; color: var(--action-blue); margin-bottom: 25px; }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .service-card p { font-size: 1.05rem; line-height: 1.6; }
+
+        /* Process Steps */
+        #process { background: var(--primary-navy); color: var(--white); text-align: center; }
+        #process h2 { color: var(--white); margin-bottom: 60px; font-size: 2.8rem; }
+        .process-steps { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+        .step { flex: 1; min-width: 250px; max-width: 300px; }
+        .step-number { width: 55px; height: 55px; background: var(--action-blue); color: var(--white); font-weight: 800; font-size: 1.4rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-family: 'Montserrat'; box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3); }
+        .step h3 { color: var(--white); margin-bottom: 15px; font-size: 1.3rem; }
+        .step p { color: #94a3b8; font-size: 1.05rem; line-height: 1.6; }
 
         /* Floating WhatsApp */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 100; transition: var(--transition); }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(-10deg); color: white; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(-5deg); color: white; }
 
         /* Footer */
-        footer { background: #040a12; color: #94a3b8; padding: 80px 0 30px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto 50px; padding: 0 20px; }
+        footer { background: #07101c; color: #94a3b8; padding: 70px 0 25px; margin-top: auto; }
+        .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; max-width: 1200px; margin: 0 auto 50px; padding: 0 20px; }
         .footer-col h4 { color: var(--white); margin-bottom: 25px; font-size: 1.2rem; }
-        .footer-col a { color: #94a3b8; display: block; margin-bottom: 12px; font-weight: 600; }
-        .footer-col a:hover { color: var(--yellow); }
-        .social-icons a { width: 45px; height: 45px; background: rgba(255,255,255,0.05); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 15px; transition: var(--transition); }
-        .social-icons a:hover { background: var(--yellow); color: var(--navy); transform: translateY(-3px); }
+        .footer-col a { color: #94a3b8; display: block; margin-bottom: 12px; font-size: 1rem; transition: var(--transition); }
+        .footer-col a:hover { color: var(--white); }
+        .social-icons a { font-size: 1.6rem; margin-right: 20px; display: inline-block; color: #94a3b8; }
+        .social-icons a:hover { color: var(--white); }
 
         @media (max-width: 900px) {
+            .top-bar { display: none; }
             .nav-links { display: none; }
             .split-section { flex-direction: column; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-btns { flex-direction: column; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Informative Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div>Clean panels. Better power. Brighter future.</div>
+            <div class="top-bar-contact">
+                <span>Solar panel care, South Africa</span>
+                <a href="tel:+27615862557"><i class="fas fa-phone-alt"></i> +27 (61) 586-2557</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <!-- Brand Logo Image Loaded Here -->
                     <img src="logo.png" alt="Solar Shine Logo" class="brand-logo">
                 </div>
                 <div class="nav-links">
-                    <a href="#about">Why Clean?</a>
-                    <a href="#calculator">Savings</a>
-                    <a href="#services">Services</a>
-                    <a href="https://wa.me/27615862557" class="btn btn-yellow" target="_blank">Book a Clean</a>
+                    <a href="#hero" class="link-item">Home</a>
+                    <a href="#about" class="link-item">Why Solar Shine</a>
+                    <a href="#services" class="link-item">Our services</a>
+                    <a href="#calculator" class="link-item">Savings</a>
+                    <a href="https://wa.me/27615862557" class="btn btn-action" target="_blank">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Parallax Hero -->
+    <!-- Hero -->
     <section id="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">South Africa's Premier Panel Care</div>
-                <h1>We Clean.<br>You <span>Save.</span></h1>
-                <p>Maximise performance. Protect your investment. Professional solar panel cleaning to secure your energy future.</p>
+                <div class="hero-badge"><i class="fas fa-sun"></i> A Brighter Outlook For Your Solar</div>
+                <h1>We clean.<br>You <span>save.</span></h1>
+                <p>Professional solar panel cleaning to help maximise performance and protect your investment.</p>
                 <div class="hero-btns">
-                    <a href="https://wa.me/27615862557" class="btn btn-yellow" target="_blank"><i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Us</a>
-                    <a href="#calculator" class="btn btn-navy"><i class="fas fa-calculator"></i> Calculate Savings</a>
+                    <a href="#calculator" class="btn btn-yellow">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/27615862557" class="btn btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Visual Split Section -->
-    <section id="about" class="split-section">
-        <div class="split-image">
-            <img src="https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Close up of sparkling clean solar panels">
-        </div>
-        <div class="split-text">
-            <h2>Your panels work hard.<br>Let’s look after them.</h2>
-            <p>Over time, baked-on dirt creates a physical barrier between your panels and the sun, severely reducing your power output.</p>
-            <ul class="highlight-list">
-                <li><i class="fas fa-sun"></i> Let up to 20% more sunlight reach your cells.</li>
-                <li><i class="fas fa-shield-alt"></i> Prevent permanent hotspot damage and etching.</li>
-                <li><i class="fas fa-leaf"></i> Make the absolute most of your clean energy.</li>
-            </ul>
+    <!-- Informative Split Section -->
+    <section id="about">
+        <div class="container split-section">
+            <div class="split-image">
+                <img src="https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Clean solar panels on a roof">
+            </div>
+            <div class="split-text">
+                <h2>Your panels work hard.<br>Let’s look after them.</h2>
+                <p>Dust, bird droppings and everyday grime can get between your panels and the sun. Regular professional cleaning helps manage that buildup and supports the long-term care of your system.</p>
+                <ul class="highlight-list">
+                    <li><i class="fas fa-shield-alt"></i> Protect your investment from permanent etching.</li>
+                    <li><i class="fas fa-bolt"></i> Let up to 20% more sunlight reach your cells.</li>
+                    <li><i class="fas fa-comments"></i> Friendly communication, from enquiry to visit.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- Interactive Calculator -->
+    <!-- Calculator -->
     <section id="calculator">
         <div class="container">
             <div class="calc-wrapper">
-                <div class="calc-header">
-                    <h2>How Much is Dirt Costing You?</h2>
-                    <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Move the slider to match the size of your installation and see how much money you could be losing to panel soiling every year.</p>
-                </div>
+                <h2>How Much is Dirt Costing You?</h2>
+                <p>Dust and grime create a barrier between your panels and the sun, reducing output by up to 20%.</p>
                 
                 <div class="slider-container">
-                    <label for="panels" style="font-weight: 800; font-size: 1.2rem; color: var(--navy); text-transform: uppercase;">System Size</label>
-                    <h2 id="panelCount" style="color: var(--yellow); margin: 15px 0; font-size: 2.5rem; font-weight: 900;">8 Panels</h2>
+                    <label for="panels" style="font-weight: 700; color: var(--text-dark); font-size: 1.1rem; text-transform: uppercase;">System Size (Number of Panels)</label>
+                    <h2 id="panelCount" style="color: var(--action-blue); margin: 20px 0; font-size: 2.8rem;">8 Panels</h2>
                     <input type="range" id="panels" min="4" max="40" value="8" step="2">
                 </div>
                 
                 <div class="result-box">
-                    <p style="font-size: 1.2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Estimated Annual Financial Loss:</p>
+                    <p style="font-weight: 600; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px;">Estimated Annual Power Loss:</p>
                     <h3 id="lostMoney">R 2,450</h3>
-                    <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 15px;">*Based on current SA municipal tariffs and a conservative 15% efficiency drop from heavy dust buildup.</p>
+                    <p style="font-size: 0.9rem; color: #cbd5e1;">*Based on average municipal tariffs and a 15% efficiency drop from soiling.</p>
                 </div>
-                <a href="https://wa.me/27615862557?text=Hi%20Solar%20Shine!%20I%20used%20your%20calculator.%20I%20have%20panels%20and%20would%20like%20a%20cleaning%20quote." target="_blank" class="btn btn-yellow" style="margin-top: 35px; width: 100%; justify-content: center; font-size: 1rem; padding: 18px;">Book a Clean & Stop Losing Power</a>
+                
+                <a href="https://wa.me/27615862557?text=Hi%20Solar%20Shine!%20I%20used%20your%20calculator.%20I%20have%20panels%20and%20would%20like%20a%20cleaning%20quote." target="_blank" class="btn btn-action" style="margin-top: 30px; width: 100%; font-size: 1.1rem; padding: 18px;">Book a Clean & Stop Losing Money</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Solid Banner -->
-    <section class="image-banner">
-        <div class="container">
-            <h2>Powered by sunshine. Cared for by Solar Shine.</h2>
-            <p style="font-weight: 600; font-size: 1.2rem;">Thoughtful care for your panels. Complete peace of mind for you.</p>
         </div>
     </section>
 
     <!-- Services Grid -->
-    <section id="services" style="background: var(--light-bg);">
+    <section id="services">
         <div class="container">
-            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <h2>A Clean Start for Every Panel</h2>
-                <p style="font-size: 1.1rem;">We utilize specialized, non-abrasive equipment designed specifically for photovoltaic glass.</p>
+            <div class="section-header">
+                <h2>A clean start for every panel.</h2>
+                <p>From your home to your business, we give your solar panels the attention they deserve with safe, specialized equipment.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-home"></i></div>
-                    <h3>Residential Cleaning</h3>
-                    <p>Care for the panels that power your home. We safely remove stubborn grime so your system can easily charge your batteries.</p>
+                    <h3>Residential cleaning</h3>
+                    <p>Care for the panels that power your home. We remove dirt and dust so your system can make the most of the sunshine.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-city"></i></div>
-                    <h3>Commercial Cleaning</h3>
-                    <p>Practical cleaning for business installations. Maximize your commercial ROI with maintenance arranged strictly around your hours.</p>
+                    <h3>Commercial cleaning</h3>
+                    <p>Practical solar panel cleaning for businesses. Keep your installation cared for with a visit arranged around your operational needs.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-hands-bubbles"></i></div>
-                    <h3>Safe & Chemical-Free</h3>
-                    <p>We use purified water systems and specialized solar brushes. No harsh chemicals, no hard water stains, and no scratched glass.</p>
+                    <h3>Safe, effective care</h3>
+                    <p>A considered approach to cleaning, using purified water and specialized brushes to prevent scratching or damaging the glass.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process">
+        <div class="container">
+            <h2>Three steps to a little more shine.</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Request a quote</h3>
+                    <p>Tell us about your property and your solar panels. We’ll discuss your cleaning needs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Arrange a visit</h3>
+                    <p>We’ll agree on a suitable time and confirm the details of your visit so you know exactly what to expect.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Get your panels cleaned</h3>
+                    <p>We take care of the clean safely and efficiently, so you can get back to enjoying your solar system.</p>
                 </div>
             </div>
         </div>
@@ -240,41 +292,40 @@
     <!-- Footer -->
     <footer>
         <div class="footer-grid">
-            <div class="footer-col">
-                <div class="logo" style="color: var(--white); margin-bottom: 20px;">
-                    <i class="fas fa-solar-panel"></i> SOLAR SHINE
+            <div class="footer-col" style="flex: 2; min-width: 250px;">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-sun" style="color: var(--accent-yellow);"></i> SOLAR SHINE
                 </div>
-                <p style="margin-bottom: 25px; line-height: 1.8;">Clean panels. Better power. Brighter future. Protecting South Africa's renewable energy investments.</p>
+                <p style="margin-bottom: 25px; line-height: 1.7;">Clean panels. Better power. Brighter future. Protecting South Africa's renewable energy investments.</p>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/solarshine_za/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/27615862557" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Explore</h4>
+            <div class="footer-col" style="flex: 1; min-width: 200px;">
+                <h4>Quick Links</h4>
                 <a href="#hero">Home</a>
-                <a href="#about">Why Clean Panels?</a>
+                <a href="#about">Why Solar Shine</a>
+                <a href="#services">Our services</a>
                 <a href="#calculator">Savings Calculator</a>
-                <a href="#services">Our Services</a>
             </div>
-            <div class="footer-col">
+            <div class="footer-col" style="flex: 1; min-width: 200px;">
                 <h4>Contact Us</h4>
-                <a href="tel:+27615862557" style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-phone" style="color: var(--yellow);"></i> +27 (61) 586-2557</a>
-                <a href="mailto:ramelaomolemo15@gmail.com" style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-envelope" style="color: var(--yellow);"></i> Email Us</a>
-                <p style="margin-top: 15px; display: flex; align-items: center; gap: 10px;"><i class="fas fa-map-marker-alt" style="color: var(--yellow);"></i> South Africa</p>
+                <a href="tel:+27615862557" style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-phone-alt"></i> +27 (61) 586-2557</a>
+                <a href="mailto:ramelaomolemo15@gmail.com" style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-envelope"></i> Email Us</a>
             </div>
         </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; font-size: 0.9rem; text-align: center;">
-            &copy; 2026 Solar Shine. All rights reserved. | Engineered by <a href="https://dxnchi.github.io/benetrix-landing/" target="_blank" rel="noopener noreferrer" style="color: var(--yellow); font-weight: 600;">Benetrix Web Services</a>
+        <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; text-align: center; font-size: 0.9rem;">
+            &copy; 2026 Solar Shine. All rights reserved. | Engineered by <a href="https://dxnchi.github.io/benetrix-landing/" target="_blank" style="color: var(--white); font-weight: 700;">Benetrix Web Services</a>
         </div>
     </footer>
 
-    <!-- Floating Action Button -->
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/27615862557" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Logic -->
+    <!-- Calculator Logic -->
     <script>
         const slider = document.getElementById("panels");
         const panelCount = document.getElementById("panelCount");
