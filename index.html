@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solar Shine - Professional Solar Panel Cleaning in South Africa. Maximise performance and protect your investment.">
+    <title>Solar Shine | Professional Panel Cleaning</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0B192C;
+            --yellow: #F9A826;
+            --yellow-glow: rgba(249, 168, 38, 0.4);
+            --light-bg: #F0F4F8;
+            --white: #FFFFFF;
+            --text-gray: #475569;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: var(--text-gray); background: var(--white); overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; color: var(--navy); }
+        a { text-decoration: none; transition: var(--transition); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 100px 0; }
+
+        /* Floating Navigation */
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 85px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.6rem; color: var(--navy); letter-spacing: 1px; }
+        .logo i { color: var(--yellow); font-size: 2rem; filter: drop-shadow(0 2px 4px var(--yellow-glow)); }
+        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links a { color: var(--navy); font-weight: 700; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-links a:hover { color: var(--yellow); }
+        
+        .btn { padding: 14px 28px; border-radius: 50px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; border: none; text-transform: uppercase; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 1px; transition: var(--transition); }
+        .btn-yellow { background: var(--yellow); color: var(--navy); box-shadow: 0 8px 20px var(--yellow-glow); }
+        .btn-yellow:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(249, 168, 38, 0.6); }
+        .btn-navy { background: var(--navy); color: var(--white); box-shadow: 0 8px 20px rgba(11, 25, 44, 0.2); }
+        .btn-navy:hover { background: #152c4d; transform: translateY(-3px); box-shadow: 0 12px 25px rgba(11, 25, 44, 0.3); }
+
+        /* Immersive Parallax Hero */
+        #hero { 
+            margin-top: 85px; 
+            min-height: 90vh;
+            background: linear-gradient(rgba(11, 25, 44, 0.7), rgba(11, 25, 44, 0.4)), 
+                        url('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .hero-content { background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 60px 50px; border-radius: 20px; max-width: 700px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5); }
+        .hero-badge { display: inline-block; padding: 8px 16px; background: rgba(249, 168, 38, 0.15); color: #d97706; font-weight: 800; border-radius: 30px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 1px; }
+        #hero h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); margin-bottom: 20px; font-weight: 900; line-height: 1.1; letter-spacing: -1px; }
+        #hero h1 span { color: var(--yellow); }
+        #hero p { font-size: 1.15rem; margin-bottom: 35px; color: var(--text-gray); line-height: 1.6; }
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        /* Feature Highlight (Image Split) */
+        .split-section { display: flex; align-items: center; gap: 50px; padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        .split-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; }
+        .split-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .split-image:hover img { transform: scale(1.05); }
+        .split-text { flex: 1; }
+        .split-text h2 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; letter-spacing: -0.5px; }
+        .split-text p { font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; }
+        .highlight-list { list-style: none; }
+        .highlight-list li { margin-bottom: 15px; font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 15px; color: var(--navy); }
+        .highlight-list i { color: var(--yellow); font-size: 1.4rem; background: rgba(249, 168, 38, 0.15); padding: 10px; border-radius: 50%; }
+
+        /* Interactive Calculator Dashboard */
+        #calculator { background: var(--light-bg); position: relative; overflow: hidden; }
+        .calc-wrapper { background: var(--white); border-radius: 24px; padding: 50px; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 20px 50px rgba(11, 25, 44, 0.08); position: relative; z-index: 2; border: 1px solid rgba(0,0,0,0.05); }
+        .calc-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .slider-container { margin: 40px 0; padding: 20px; background: var(--light-bg); border-radius: 16px; }
+        input[type=range] { width: 100%; height: 8px; border-radius: 4px; background: #cbd5e1; outline: none; -webkit-appearance: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); cursor: pointer; box-shadow: 0 4px 10px rgba(249, 168, 38, 0.5); transition: transform 0.1s; }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+        .result-box { background: linear-gradient(135deg, var(--navy), #1a365d); color: var(--white); padding: 35px; border-radius: 16px; margin-top: 30px; box-shadow: 0 15px 30px rgba(11, 25, 44, 0.2); }
+        .result-box h3 { color: var(--yellow); font-size: 3.5rem; margin: 15px 0; text-shadow: 0 2px 10px rgba(249, 168, 38, 0.3); }
+
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; margin-top: 50px; }
+        .service-card { background: var(--white); padding: 50px 40px; border-radius: 20px; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.05); transition: var(--transition); position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--yellow); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-icon { width: 80px; height: 80px; background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(249, 168, 38, 0.2)); color: #d97706; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 2.2rem; margin-bottom: 25px; transition: var(--transition); }
+        .service-card:hover .service-icon { transform: rotate(10deg) scale(1.1); }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+
+        /* Visual Banner */
+        .image-banner { 
+            background: linear-gradient(rgba(249, 168, 38, 0.9), rgba(249, 168, 38, 0.9)), 
+                        url('https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed; 
+            padding: 80px 0; text-align: center; color: var(--navy); 
+        }
+        .image-banner h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--navy); }
+
+        /* Floating WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 100; transition: var(--transition); }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(-10deg); color: white; }
+
+        /* Footer */
+        footer { background: #040a12; color: #94a3b8; padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto 50px; padding: 0 20px; }
+        .footer-col h4 { color: var(--white); margin-bottom: 25px; font-size: 1.2rem; }
+        .footer-col a { color: #94a3b8; display: block; margin-bottom: 12px; font-weight: 600; }
+        .footer-col a:hover { color: var(--yellow); }
+        .social-icons a { width: 45px; height: 45px; background: rgba(255,255,255,0.05); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 15px; transition: var(--transition); }
+        .social-icons a:hover { background: var(--yellow); color: var(--navy); transform: translateY(-3px); }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .split-section { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-solar-panel"></i> SOLAR SHINE
+                </div>
+                <div class="nav-links">
+                    <a href="#about">Why Clean?</a>
+                    <a href="#calculator">Savings</a>
+                    <a href="#services">Services</a>
+                    <a href="https://wa.me/27615862557" class="btn btn-yellow" target="_blank">Book a Clean</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Parallax Hero -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">South Africa's Premier Panel Care</div>
+                <h1>We Clean.<br>You <span>Save.</span></h1>
+                <p>Dust, bird droppings, and everyday grime block the sun. Professional solar panel cleaning maximizes your system's performance and secures your energy investment.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/27615862557" class="btn btn-yellow" target="_blank"><i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Us</a>
+                    <a href="#calculator" class="btn btn-navy"><i class="fas fa-calculator"></i> Calculate Savings</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Split Section -->
+    <section id="about" class="split-section">
+        <div class="split-image">
+            <img src="https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Close up of sparkling clean solar panels">
+        </div>
+        <div class="split-text">
+            <h2>Your panels work hard.<br>Let’s look after them.</h2>
+            <p>Rain doesn't clean solar panels any more than it cleans your car windscreen. Over time, baked-on dirt creates a physical barrier between your panels and the sun, severely reducing your power output.</p>
+            <ul class="highlight-list">
+                <li><i class="fas fa-sun"></i> Let up to 20% more sunlight reach your cells.</li>
+                <li><i class="fas fa-shield-alt"></i> Prevent permanent hotspot damage and etching.</li>
+                <li><i class="fas fa-leaf"></i> Make the absolute most of your clean energy.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator -->
+    <section id="calculator">
+        <div class="container">
+            <div class="calc-wrapper">
+                <div class="calc-header">
+                    <h2>How Much is Dirt Costing You?</h2>
+                    <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Move the slider to match the size of your installation and see how much money you could be losing to panel soiling every year.</p>
+                </div>
+                
+                <div class="slider-container">
+                    <label for="panels" style="font-weight: 800; font-size: 1.2rem; color: var(--navy); text-transform: uppercase;">System Size</label>
+                    <h2 id="panelCount" style="color: var(--yellow); margin: 15px 0; font-size: 2.5rem; font-weight: 900;">8 Panels</h2>
+                    <input type="range" id="panels" min="4" max="40" value="8" step="2">
+                </div>
+                
+                <div class="result-box">
+                    <p style="font-size: 1.2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Estimated Annual Financial Loss:</p>
+                    <h3 id="lostMoney">R 2,450</h3>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 15px;">*Based on current SA municipal tariffs and a conservative 15% efficiency drop from heavy dust buildup.</p>
+                </div>
+                <a href="https://wa.me/27615862557?text=Hi%20Solar%20Shine!%20I%20used%20your%20calculator.%20I%20have%20panels%20and%20would%20like%20a%20cleaning%20quote." target="_blank" class="btn btn-yellow" style="margin-top: 35px; width: 100%; justify-content: center; font-size: 1rem; padding: 18px;">Book a Clean & Stop Losing Power</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solid Banner -->
+    <section class="image-banner">
+        <div class="container">
+            <h2>Powered by sunshine. Cared for by Solar Shine.</h2>
+            <p style="font-weight: 600; font-size: 1.2rem;">Thoughtful care for your panels. Complete peace of mind for you.</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" style="background: var(--light-bg);">
+        <div class="container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <h2>A Clean Start for Every Panel</h2>
+                <p style="font-size: 1.1rem;">We utilize specialized, non-abrasive equipment designed specifically for photovoltaic glass to ensure a spotless, scratch-free finish.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>Residential Cleaning</h3>
+                    <p>Care for the panels that power your home. We safely remove stubborn grime so your system can easily charge your batteries during the day.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-city"></i></div>
+                    <h3>Commercial Cleaning</h3>
+                    <p>Practical cleaning for business installations. Maximize your commercial ROI with maintenance arranged strictly around your operational hours.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hands-bubbles"></i></div>
+                    <h3>Safe & Chemical-Free</h3>
+                    <p>We use purified water systems and specialized solar brushes. No harsh chemicals, no hard water stains, and absolutely no scratched glass.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: var(--white); margin-bottom: 20px;">
+                    <i class="fas fa-solar-panel"></i> SOLAR SHINE
+                </div>
+                <p style="margin-bottom: 25px; line-height: 1.8;">Clean panels. Better power. Brighter future. Protecting South Africa's renewable energy investments one installation at a time.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/solarshine_za/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/27615862557" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="#hero">Home</a>
+                <a href="#about">Why Clean Panels?</a>
+                <a href="#calculator">Savings Calculator</a>
+                <a href="#services">Our Services</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <a href="tel:+27615862557" style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-phone" style="color: var(--yellow);"></i> +27 (61) 586-2557</a>
+                <a href="mailto:ramelaomolemo15@gmail.com" style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-envelope" style="color: var(--yellow);"></i> Email Us</a>
+                <p style="margin-top: 15px; display: flex; align-items: center; gap: 10px;"><i class="fas fa-map-marker-alt" style="color: var(--yellow);"></i> South Africa</p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; font-size: 0.9rem; text-align: center;">
+            &copy; 2026 Solar Shine. All rights reserved. | Engineered by <a href="https://dxnchi.github.io/benetrix-landing/" target="_blank" rel="noopener noreferrer" style="color: var(--yellow); font-weight: 600;">Benetrix Web Services</a>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a href="https://wa.me/27615862557" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Logic -->
+    <script>
+        const slider = document.getElementById("panels");
+        const panelCount = document.getElementById("panelCount");
+        const lostMoney = document.getElementById("lostMoney");
+
+        function calculateLoss(panels) {
+            // Rough SA benchmark: 15% efficiency loss on standard 400W panels
+            const lossPerPanelAnnually = 520; 
+            const totalLoss = panels * lossPerPanelAnnually;
+            return "R " + totalLoss.toLocaleString();
+        }
+
+        slider.oninput = function() {
+            panelCount.innerHTML = this.value + " Panels";
+            lostMoney.innerHTML = calculateLoss(this.value);
+        }
+        
+        lostMoney.innerHTML = calculateLoss(slider.value);
+    </script>
+</body>
+</html>
